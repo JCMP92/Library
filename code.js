@@ -18,12 +18,17 @@ Book.prototype.bookInfo =  function () {
 
 function addBookToLibrary(title, author, numPages, read) {
     let bookObj = new Book(title, author, numPages, read);
-    myLibrary.push(bookObj);
-    console.log('book added')
+
+    if (!myLibrary.some(book => book.title === bookObj.title)) {
+        myLibrary.push(bookObj);
+        console.log('book added');
+        createBookCard(bookObj); 
+    } else {
+        return;
+    }
 }
 
-function eachBook() {
-    myLibrary.forEach(function(book) {
+function createBookCard(book) {
         console.log(book)
         const bookCard = document.createElement('div');
             bookCard.classList.add('book-card');
@@ -47,8 +52,7 @@ function eachBook() {
                           
 
     container.appendChild(bookCard);
-    });     
-}
+    }
 
 
 
