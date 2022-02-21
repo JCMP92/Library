@@ -25,9 +25,27 @@ function addBookToLibrary(title, author, numPages, read) {
 function eachBook() {
     myLibrary.forEach(function(book) {
         console.log(book)
-        let bookCard = document.createElement('div');
+        const bookCard = document.createElement('div');
             bookCard.classList.add('book-card');
-            bookCard.textContent = `${book.title}`;
+
+            const bookTitle = document.createElement('h2');
+            bookTitle.textContent = `${book.title}`;
+            const bookAuthor = document.createElement('h3');
+            bookAuthor.textContent = 'by' + ' ' + `${book.author}`;
+            const bookPages = document.createElement('p');
+            bookPages.textContent = `${book.numPages}` + ' ' + 'pages';
+            const bookRead = document.createElement('p');
+            bookRead.textContent = `${book.read}`;
+
+
+
+
+            bookCard.appendChild(bookTitle);
+            bookCard.appendChild(bookAuthor);
+            bookCard.appendChild(bookPages);
+            bookCard.appendChild(bookRead);
+                          
+
     container.appendChild(bookCard);
     });     
 }
