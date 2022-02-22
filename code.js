@@ -38,7 +38,9 @@ function addBookToLibrary() {
 
     let bookObj = new Book(title, author, numPages);
 
-    if (bookValidation(bookObj)) {
+    if (title === '' || author === '' || numPages == 0) {
+        return;
+    } else if (bookValidation(bookObj)) {
         myLibrary.push(bookObj);
         createBookCard(bookObj); 
     } else {
