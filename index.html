@@ -18,18 +18,41 @@
     <div class="main-container">
 
         <div class="add-btn">
-            <button data-modal-target="#modal"><i class="fas fa-plus"></i></button>
+            <button data-modal-target="#modal"><i class="fas fa-plus"></i> New Book</button>
         </div>
 
         <div class="modal" id="modal">
             <div class="modal-header" id="modal-header">
                 <div class="modal-title" id="modal-title">
-                    <h2>Modal Title</h2>
+                    <h2>Add New Book</h2>
                 </div>
                 <button data-close-button class="close-btn">&times;</button>  <!-- &times; is an html entity, this doesn´t scale by the size of the font -->
             </div>
             <div class="modal-body" id="modal-body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ullam doloremque esse est libero! Architecto molestiae, et ducimus commodi ex facere! Numquam neque quisquam, nemo iste unde id doloremque quas velit deleniti ipsa. Veniam a ut sed possimus quidem eum incidunt nesciunt! Vero, adipisci. Dolor minima dolores mollitia id optio, quaerat consequuntur odit veritatis aliquam officiis ab beatae hic obcaecati sint dolorem tempora eligendi ut commodi laborum minus delectus rerum! Assumenda alias iusto pariatur nesciunt quaerat iure sapiente veniam cupiditate!
+                <form action="#">
+
+                    <label for="" class="name-book">
+                        <span>Book name</span> <br>
+                        <input type="text" name="book-name" id="book-name" placeholder="e.g. The Count of Monte Cristo">
+                    </label>
+
+                    <label for="book-author" class="author-book">
+                        <span>Author</span> <br>
+                        <input type="text" name="book-author" id="book-author" placeholder="e.g. Alexandre Dumas">
+                    </label>
+
+                    <label for="num-pages" class="page-number">
+                        <span>Number of pages</span> <br>
+                        <input type="number" name="num-pages" id="num-pages" min="0" placeholder="0">
+                    </label>
+
+                    <label class="switch">
+                        <span>Already read it?</span> <br>
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    
+                </form>
             </div>
         </div>
         <div id="overlay"></div>

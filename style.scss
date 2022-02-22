@@ -51,6 +51,10 @@
     .modal-body{
         font-size: 1.2rem;
         padding: 10px 15px;
+          form{
+            display: flex;
+            flex-direction: column;
+          }
     }
   }
 
