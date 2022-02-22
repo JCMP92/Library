@@ -5,11 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="code.js" defer></script>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4013d3bcd3.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-    <div class="lib-card-container">
-        
+    <header>
+        <h1>Library</h1>
+    </header>
+
+    <div class="main-container">
+
+        <div class="add-btn">
+            <button data-modal-target="#modal"><i class="fas fa-plus"></i></button>
+        </div>
+
+        <div class="modal" id="modal">
+            <div class="modal-header" id="modal-header">
+                <div class="modal-title" id="modal-title">
+                    <h2>Modal Title</h2>
+                </div>
+                <button data-close-button class="close-btn">&times;</button>  <!-- &times; is an html entity, this doesn´t scale by the size of the font -->
+            </div>
+            <div class="modal-body" id="modal-body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ullam doloremque esse est libero! Architecto molestiae, et ducimus commodi ex facere! Numquam neque quisquam, nemo iste unde id doloremque quas velit deleniti ipsa. Veniam a ut sed possimus quidem eum incidunt nesciunt! Vero, adipisci. Dolor minima dolores mollitia id optio, quaerat consequuntur odit veritatis aliquam officiis ab beatae hic obcaecati sint dolorem tempora eligendi ut commodi laborum minus delectus rerum! Assumenda alias iusto pariatur nesciunt quaerat iure sapiente veniam cupiditate!
+            </div>
+        </div>
+        <div id="overlay"></div>
+
+        <div class="lib-card-container">
+        </div>
     </div>
+
 </body>
 </html>

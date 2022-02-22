@@ -1,5 +1,17 @@
 let myLibrary = [];
+
 const container = document.querySelector('.lib-card-container');
+const openModalButton = document.querySelector('[data-modal-target]');
+const closeModalButton = document.querySelector('[data-close-button]');
+const overlay = document.getElementById('overlay');
+const modal = document.getElementById('modal');
+const activeModal = document.querySelectorAll('.modal.active');
+
+
+
+openModalButton.addEventListener('click', openModal);
+closeModalButton.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
 
 //OBJECT CONSTRUCTOR - BOOK
 function Book(title, author, numPages, read) {
@@ -11,21 +23,20 @@ function Book(title, author, numPages, read) {
 
 };
 
-Book.prototype.bookInfo =  function () {
-    return this.title + ' ' + 'by' + ' ' + this.author + ',' + ' ' + this.numPages + ' ' + 'pages' + ',' + ' ' + this.read + '.';      
-};
-
-
 function addBookToLibrary(title, author, numPages, read) {
     let bookObj = new Book(title, author, numPages, read);
 
-    if (!myLibrary.some(book => book.title === bookObj.title)) {
+    if (bookValidation(bookObj)) {
         myLibrary.push(bookObj);
         console.log('book added');
         createBookCard(bookObj); 
     } else {
         return;
     }
+}
+
+function bookValidation(bookToValidate){
+    return !myLibrary.some(book => book.title === bookToValidate.title);
 }
 
 function createBookCard(book) {
@@ -57,4 +68,15 @@ function createBookCard(book) {
 
 
 // const dracula = new Book('Dracula', 'Bram Stoker', 418, 'already read');
-// const montecristo = new Book ('The Count of Monte Cristo', 'Alexandre Dumas', 1312, 'already read')
+// const montecristo = new Book ('The Count of Monte Cristo', 'Alexandre Dumas', 1312, 'already read');
+
+    function openModal() {
+        modal.classList.add('active');
+        overlay.classList.add('active');
+        
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    }
