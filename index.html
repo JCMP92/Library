@@ -29,30 +29,23 @@
                 <button data-close-button class="close-btn">&times;</button>  <!-- &times; is an html entity, this doesn´t scale by the size of the font -->
             </div>
             <div class="modal-body" id="modal-body">
-                <form action="#">
 
-                    <label for="" class="name-book">
-                        <span>Book name</span> <br>
-                        <input type="text" name="book-name" id="book-name" placeholder="e.g. The Count of Monte Cristo">
-                    </label>
+                    <form> 
+                        <label for="book-name" class="name-book">
+                            <span>Book name</span> <br>
+                            <input type="text" name="book-name" id="book-name" placeholder="e.g. The Count of Monte Cristo" required>
+                        </label>
+                        <label for="book-author" class="author-book">
+                            <span>Author</span> <br>
+                            <input type="text" name="book-author" id="book-author" placeholder="e.g. Alexandre Dumas" required>
+                        </label>
+                        <label for="num-pages" class="page-number">
+                            <span>Number of pages</span> <br>
+                            <input type="number" name="num-pages" id="num-pages" min="0" placeholder="0" required>
+                        </label>
+                        <button id="done-btn" type="submit">Submit</button>
+                    </form>
 
-                    <label for="book-author" class="author-book">
-                        <span>Author</span> <br>
-                        <input type="text" name="book-author" id="book-author" placeholder="e.g. Alexandre Dumas">
-                    </label>
-
-                    <label for="num-pages" class="page-number">
-                        <span>Number of pages</span> <br>
-                        <input type="number" name="num-pages" id="num-pages" min="0" placeholder="0">
-                    </label>
-
-                    <label class="switch">
-                        <span>Already read it?</span> <br>
-                        <input type="checkbox">
-                        <span class="slider"></span>
-                    </label>
-                    
-                </form>
             </div>
         </div>
         <div id="overlay"></div>

@@ -1,4 +1,7 @@
 let myLibrary = [];
+let titleInitial = '';
+let authorInitial = '';
+let numPagesInitial = 0;
 
 const container = document.querySelector('.lib-card-container');
 const openModalButton = document.querySelector('[data-modal-target]');
@@ -6,29 +9,37 @@ const closeModalButton = document.querySelector('[data-close-button]');
 const overlay = document.getElementById('overlay');
 const modal = document.getElementById('modal');
 const activeModal = document.querySelectorAll('.modal.active');
+const doneBtn = document.getElementById('done-btn');
+const titleInput = document.getElementById('book-name');
+const authorInput = document.getElementById('book-author');
+const numPagesInput = document.getElementById('num-pages');
 
 
 
 openModalButton.addEventListener('click', openModal);
 closeModalButton.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+doneBtn.addEventListener('click', addBookToLibrary);
+
 
 //OBJECT CONSTRUCTOR - BOOK
-function Book(title, author, numPages, read) {
+function Book(title, author, numPages) {
 
     this.title = title;
     this.author = author;
     this.numPages = numPages;
-    this.read = read;
 
 };
 
-function addBookToLibrary(title, author, numPages, read) {
-    let bookObj = new Book(title, author, numPages, read);
+function addBookToLibrary() {
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const numPages = numPagesInput.value;
+
+    let bookObj = new Book(title, author, numPages);
 
     if (bookValidation(bookObj)) {
         myLibrary.push(bookObj);
-        console.log('book added');
         createBookCard(bookObj); 
     } else {
         return;
@@ -40,7 +51,6 @@ function bookValidation(bookToValidate){
 }
 
 function createBookCard(book) {
-        console.log(book)
         const bookCard = document.createElement('div');
             bookCard.classList.add('book-card');
 
@@ -50,8 +60,8 @@ function createBookCard(book) {
             bookAuthor.textContent = 'by' + ' ' + `${book.author}`;
             const bookPages = document.createElement('p');
             bookPages.textContent = `${book.numPages}` + ' ' + 'pages';
-            const bookRead = document.createElement('p');
-            bookRead.textContent = `${book.read}`;
+            // const bookRead = document.createElement('p');
+            // bookRead.textContent = `${book.read}`;
 
 
 
@@ -59,16 +69,15 @@ function createBookCard(book) {
             bookCard.appendChild(bookTitle);
             bookCard.appendChild(bookAuthor);
             bookCard.appendChild(bookPages);
-            bookCard.appendChild(bookRead);
+            // bookCard.appendChild(bookRead);
                           
 
     container.appendChild(bookCard);
+
+    closeModal();
     }
 
 
-
-// const dracula = new Book('Dracula', 'Bram Stoker', 418, 'already read');
-// const montecristo = new Book ('The Count of Monte Cristo', 'Alexandre Dumas', 1312, 'already read');
 
     function openModal() {
         modal.classList.add('active');
@@ -79,4 +88,8 @@ function createBookCard(book) {
     function closeModal() {
         modal.classList.remove('active');
         overlay.classList.remove('active');
+        
+        titleInput.value = '';
+        authorInput.value = '';
+        numPagesInput.value = 0;
     }
