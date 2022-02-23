@@ -81,10 +81,10 @@ function createBookCard(book) {
             
 
             bookDelete.addEventListener('click', function(e){
-                let indexBook= myLibrary.findIndex(book => book.title === e.target.parentNode.id)
-                alert(e.target.parentNode.id);
-                console.log(indexBook);
+                let indexBook= myLibrary.findIndex(book => book.title === e.target.parentNode.id);
+                let removeBook = document.getElementById(`${book.title}`);
                 myLibrary.splice(indexBook, 1);
+                removeBook.remove();
             })
 
 
