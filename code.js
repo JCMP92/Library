@@ -57,6 +57,7 @@ function bookValidation(bookToValidate){
 function createBookCard(book) {
         const bookCard = document.createElement('div');
             bookCard.classList.add('book-card');
+            bookCard.setAttribute('id', `${book.title}`);
 
             const bookTitle = document.createElement('h2');
             bookTitle.textContent = `${book.title}`;
@@ -75,10 +76,18 @@ function createBookCard(book) {
                 bookRead.textContent = 'Not read';
             }
             
+            const bookDelete = document.createElement('button');
+            bookDelete.classList.add('delete-btn');
+            bookDelete.textContent = 'Remove';
+            bookDelete.addEventListener('click', function(e){
+                alert(e.target.parentNode.id);
+            })
+
             bookCard.appendChild(bookTitle);
             bookCard.appendChild(bookAuthor);
             bookCard.appendChild(bookPages);
             bookCard.appendChild(bookRead);
+            bookCard.appendChild(bookDelete);
                           
 
     container.appendChild(bookCard);
