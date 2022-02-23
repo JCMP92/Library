@@ -56,32 +56,37 @@ function bookValidation(bookToValidate){
 
 function createBookCard(book) {
         const bookCard = document.createElement('div');
-            bookCard.classList.add('book-card');
+            const bookTitle = document.createElement('h2');
+            const bookAuthor = document.createElement('h3');
+            const bookPages = document.createElement('p');
+            const bookRead = document.createElement('button');
+            const bookDelete = document.createElement('button');
+
             bookCard.setAttribute('id', `${book.title}`);
 
-            const bookTitle = document.createElement('h2');
-            bookTitle.textContent = `${book.title}`;
-
-            const bookAuthor = document.createElement('h3');
-            bookAuthor.textContent = 'by' + ' ' + `${book.author}`;
-
-            const bookPages = document.createElement('p');
-            bookPages.textContent = `${book.numPages}` + ' ' + 'pages';
-
-            const bookRead = document.createElement('button');
+            bookCard.classList.add('book-card');
             bookRead.classList.add = ('read-or-not'); //<-----------------------------------------------------------------------------
+            bookDelete.classList.add('delete-btn');
+
+            bookTitle.textContent = `${book.title}`;
+            bookAuthor.textContent = 'by' + ' ' + `${book.author}`;
+            bookPages.textContent = `${book.numPages}` + ' ' + 'pages';
+            bookDelete.textContent = 'Remove';
+            //BookRead Text Content-------------------------------------------------------------------------------------------------------
             if (alreadyReadInput.checked == true) {
                 bookRead.textContent = 'Read';
             } else {
                 bookRead.textContent = 'Not read';
             }
             
-            const bookDelete = document.createElement('button');
-            bookDelete.classList.add('delete-btn');
-            bookDelete.textContent = 'Remove';
+
             bookDelete.addEventListener('click', function(e){
+                let indexBook= myLibrary.findIndex(book => book.title === e.target.parentNode.id)
                 alert(e.target.parentNode.id);
+                console.log(indexBook);
+                myLibrary.splice(indexBook, 1);
             })
+
 
             bookCard.appendChild(bookTitle);
             bookCard.appendChild(bookAuthor);
