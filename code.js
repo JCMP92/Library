@@ -11,7 +11,6 @@ const titleInput = document.getElementById('book-name');
 const authorInput = document.getElementById('book-author');
 const numPagesInput = document.getElementById('num-pages');
 const alreadyReadInput = document.getElementById('read-it?');
-// const readOrNot = document.getElementById('read-or-not');
 
 
 
@@ -19,7 +18,6 @@ openModalButton.addEventListener('click', openModal);
 closeModalButton.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 doneBtn.addEventListener('click', addBookToLibrary);
-// readOrNot.addEventListener('click', toggleText);
 
 
 
@@ -41,13 +39,14 @@ function addBookToLibrary() {
 
     let bookObj = new Book(title, author, numPages, alreadyRead);
 
-    if (title === '' || author === '' || numPages == 0) {
+    if (title === '' || author === '' || numPages === '') {
         return;
     } else if (bookValidation(bookObj)) {
         myLibrary.push(bookObj);
         createBookCard(bookObj); 
     } else {
-        return;
+        alert("You already have that title in your library!");
+        restartForm();
     }
 }
 
@@ -69,17 +68,13 @@ function createBookCard(book) {
             bookPages.textContent = `${book.numPages}` + ' ' + 'pages';
 
             const bookRead = document.createElement('button');
-            bookRead.id = 'read-or-not';
+            bookRead.classList.add = ('read-or-not'); //<-----------------------------------------------------------------------------
             if (alreadyReadInput.checked == true) {
                 bookRead.textContent = 'Read';
             } else {
                 bookRead.textContent = 'Not read';
             }
             
-
-
-
-
             bookCard.appendChild(bookTitle);
             bookCard.appendChild(bookAuthor);
             bookCard.appendChild(bookPages);
@@ -89,6 +84,7 @@ function createBookCard(book) {
     container.appendChild(bookCard);
 
     closeModal();
+    restartForm();
     }
 
 
@@ -101,14 +97,12 @@ function createBookCard(book) {
 
     function closeModal() {
         modal.classList.remove('active');
-        overlay.classList.remove('active');
-        
-        titleInput.value = '';
-        authorInput.value = '';
-        numPagesInput.value = 0;
-        alreadyReadInput.checked = false;
+        overlay.classList.remove('active');   
     }
 
-    // function toggleText() {
-    //     console.log('hi');
-    // }
+    function restartForm() {
+        titleInput.value = '';
+        authorInput.value = '';
+        numPagesInput.value = '';
+        alreadyReadInput.checked = '';
+    }

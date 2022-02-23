@@ -25,7 +25,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0); //using scale() allows us to transition the display of modal.
-      transition: 200ms ease-in-out;
+      transition: 100ms ease-in-out;
       border: 1px solid black;
       border-radius: 10px;
       z-index: 10; //we need this, so the modal stays above everything else.
@@ -65,7 +65,7 @@
     #overlay{
         position: fixed;
         opacity: 0;
-        transition: 200ms ease-in-out;
+        transition: 100ms ease-in-out;
         top: 0;
         bottom: 0;
         left: 0;
