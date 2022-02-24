@@ -150,7 +150,8 @@ header i {
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 100ms ease-in-out;
-  border: 1px solid black;
+  border: 1px solid #4f4f51;
+  border: none;
   border-radius: 10px;
   z-index: 10;
   background-color: white;
@@ -162,7 +163,10 @@ header i {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid black;
+  background-color: #4f4f51;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #00aeff;
 }
 .modal .modal-header button {
   cursor: pointer;
@@ -171,6 +175,7 @@ header i {
   background: none;
   font-size: 1.5rem;
   font-weight: bold;
+  color: #f58f7c;
 }
 .modal .modal-header button:active {
   transform: scale(0.94);
@@ -182,6 +187,34 @@ header i {
 .modal .modal-body form {
   display: flex;
   flex-direction: column;
+}
+.modal .modal-body form input {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 0.05px solid;
+  background-color: white;
+}
+.modal .modal-body form button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #00aeff;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+.modal .modal-body form button:active {
+  transform: scale(0.94);
+}
+.modal .modal-body form button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.modal .modal-body form button:hover:active {
+  transform: scale(0.94);
 }
 
 .modal.active {
