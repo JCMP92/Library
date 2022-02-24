@@ -87,7 +87,7 @@ function createBookCard(book) {
             
             //Delete button function---------------------------------------------------------------------------------------------------
             bookDelete.addEventListener('click', function(e){
-                let indexBook= myLibrary.findIndex(book => book.title === e.target.parentNode.id);
+                let indexBook= myLibrary.findIndex(book => book.title === e.target.parentNode.parentNode.id);
                 let removeBook = document.getElementById(`${book.title}`);
                 myLibrary.splice(indexBook, 1);
                 removeBook.remove();
@@ -104,6 +104,16 @@ function createBookCard(book) {
                     bookRead.classList.add('read-btn'); 
                 }
             })
+
+            bookRead.addEventListener('click', function (e) {
+                let indexBook= myLibrary.findIndex(book => book.title === e.target.parentNode.parentNode.id);
+                if (myLibrary[indexBook].alreadyRead == true){
+                    myLibrary[indexBook].alreadyRead = false;
+                } else {
+                    myLibrary[indexBook].alreadyRead = true
+                }
+            })
+
 
             titleAuthor.appendChild(bookTitle);
             titleAuthor.appendChild(bookAuthor);
