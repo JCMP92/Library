@@ -21,7 +21,7 @@ doneBtn.addEventListener('click', addBookToLibrary);
 
 
 
-//OBJECT CONSTRUCTOR - BOOK
+//OBJECT CONSTRUCTOR - BOOK--------------------------------------------------------------------------------------------
 function Book(title, author, numPages, alreadyRead) {
 
     this.title = title;
@@ -79,12 +79,20 @@ function createBookCard(book) {
                 bookRead.textContent = 'Not read';
             }
             
-
+            //Delete button function---------------------------------------------------------------------------------------------------
             bookDelete.addEventListener('click', function(e){
                 let indexBook= myLibrary.findIndex(book => book.title === e.target.parentNode.id);
                 let removeBook = document.getElementById(`${book.title}`);
                 myLibrary.splice(indexBook, 1);
                 removeBook.remove();
+            })
+
+            bookRead.addEventListener('click', function(){
+                if (bookRead.textContent === 'Read') {
+                    bookRead.textContent = 'Not read';
+                } else if (bookRead.textContent === 'Not read') {
+                    bookRead.textContent = 'Read';
+                }
             })
 
 

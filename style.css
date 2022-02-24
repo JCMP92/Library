@@ -4,11 +4,82 @@
 
 body {
   font-size: 10px;
+  background-color: #4f4f51;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: bold;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: clamp(50px, 10vh, 100px);
+  background-color: #2c2b30;
+  box-shadow: 0px 10px 18px #2c2b30;
+  color: white;
+}
+header i {
+  font-size: 2.5rem;
+  margin-right: 5px;
+  color: #f58f7c;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+}
+.main-container .add-btn {
+  position: fixed;
+  top: clamp(65px, 13vh, 150px);
+  cursor: pointer;
+}
+.main-container .add-btn:active {
+  transform: scale(0.94);
+}
+.main-container .add-btn button {
+  width: clamp(40px, 6vh, 80px);
+  height: clamp(40px, 6vh, 80px);
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+}
+.main-container .add-btn button i {
+  font-size: 2rem;
+  color: #f58f7c;
+}
+.main-container .add-btn button:hover {
+  transform: scale(1.1);
+  background-color: #f58f7c;
+  cursor: pointer;
+}
+.main-container .add-btn button:hover:active {
+  transform: scale(0.94);
+}
+.main-container .add-btn button:hover i {
+  color: white;
+}
+
+.lib-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: clamp(80px, 22vh, 200px);
+  background-color: white;
+  height: auto;
+  width: clamp(300px, 55vh, 1500px);
+  border-radius: 2rem;
 }
 
 .modal {
