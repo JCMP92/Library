@@ -56,18 +56,22 @@ function bookValidation(bookToValidate){
 
 function createBookCard(book) {
         const bookCard = document.createElement('div');
-            const bookTitle = document.createElement('h2');
-            const bookAuthor = document.createElement('h3');
-            const bookPages = document.createElement('p');
+            const titleAuthor = document.createElement('div');
+                const bookTitle = document.createElement('h2');
+                const bookAuthor = document.createElement('h3');
+                const bookPages = document.createElement('p');
+                const bookBtns = document.createElement('div');
             const bookRead = document.createElement('button');
             const bookDelete = document.createElement('button');
 
             bookCard.setAttribute('id', `${book.title}`);
 
             bookCard.classList.add('book-card');
-            bookRead.classList.add = ('read-or-not'); //<-----------------------------------------------------------------------------
+            titleAuthor.classList.add('title-auth');
+            bookBtns.classList.add('btns-container');
             bookDelete.classList.add('delete-btn');
-
+            bookRead.classList.add('read-or-not');
+            
             bookTitle.textContent = `${book.title}`;
             bookAuthor.textContent = 'by' + ' ' + `${book.author}`;
             bookPages.textContent = `${book.numPages}` + ' ' + 'pages';
@@ -75,8 +79,10 @@ function createBookCard(book) {
             //BookRead Text Content-------------------------------------------------------------------------------------------------------
             if (alreadyReadInput.checked == true) {
                 bookRead.textContent = 'Read';
+                bookRead.classList.add('read-btn'); 
             } else {
                 bookRead.textContent = 'Not read';
+                bookRead.classList.add('no-read-btn'); 
             }
             
             //Delete button function---------------------------------------------------------------------------------------------------
@@ -90,17 +96,23 @@ function createBookCard(book) {
             bookRead.addEventListener('click', function(){
                 if (bookRead.textContent === 'Read') {
                     bookRead.textContent = 'Not read';
+                    bookRead.classList.remove('read-btn');
+                    bookRead.classList.add('no-read-btn');                  
                 } else if (bookRead.textContent === 'Not read') {
                     bookRead.textContent = 'Read';
+                    bookRead.classList.remove('no-read-btn');
+                    bookRead.classList.add('read-btn'); 
                 }
             })
 
+            titleAuthor.appendChild(bookTitle);
+            titleAuthor.appendChild(bookAuthor);
+            titleAuthor.appendChild(bookPages);
+            bookBtns.appendChild(bookRead);
+            bookBtns.appendChild(bookDelete);
 
-            bookCard.appendChild(bookTitle);
-            bookCard.appendChild(bookAuthor);
-            bookCard.appendChild(bookPages);
-            bookCard.appendChild(bookRead);
-            bookCard.appendChild(bookDelete);
+            bookCard.appendChild(titleAuthor);
+            bookCard.appendChild(bookBtns);
                           
 
     container.appendChild(bookCard);
