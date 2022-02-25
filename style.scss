@@ -94,8 +94,8 @@
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    width: clamp(250px, 40vw, 600px);
-    height: 80px;
+    width: clamp(180px, 40vw, 600px);
+    height: auto;
     margin: 15px;
     padding: 15px;
     border-radius: 2rem;
@@ -232,15 +232,15 @@
         opacity: 1;
         pointer-events: all;
     }
-
+//FOOTER-------------------------------------------------------------------------------------------------------
     .page-end{
       display: flex;
       position: absolute;
       bottom:0;
       width:100%;
-      text-align: center;
+      justify-content: center;
       color: white;
-      font-size: 1rem;
+      font-size: 0.8rem;
   }
 
 
@@ -255,3 +255,19 @@ h3{
   font-size: 1rem;
 }
 }
+
+@media (max-width: 310px) {
+
+  body{
+    font-size: 6px;
+  }
+  h1{
+    font-size: 2rem;
+  }
+  h2{
+    font-size: 1.5rem;
+  }
+  h3{
+    font-size: 1rem;
+  }
+  }
