@@ -240,8 +240,7 @@ header i {
 
 .page-end {
   display: flex;
-  flex-direction: column;
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;
