@@ -22,14 +22,15 @@ doneBtn.addEventListener('click', addBookToLibrary);
 
 
 //OBJECT CONSTRUCTOR - BOOK--------------------------------------------------------------------------------------------
-function Book(title, author, numPages, alreadyRead) {
-
+class Book{
+    constructor(title, author, numPages, alreadyRead) {
     this.title = title;
     this.author = author;
     this.numPages = numPages;
     this.alreadyRead = alreadyRead;
 
-};
+    }
+}
 
 function addBookToLibrary() {
     const title = titleInput.value;
